@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tailwind CSS Modal</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+<nav id="header" class="fixed w-full">
+
+    <!--Nav-->
+    <div class="relative w-full z-10 fixed top-0 bg-gray-800 border-b border-grey-light">
+        <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-4">
+            <div class="pl-4 flex items-center">
+                <svg class="fill-current text-white h-10 pr-4" xmlns="http://www.w3.org/2000/svg" data-name="Ebene 1"
+                     viewBox="0 0 56 56" x="0px" y="0px"><title>00 Hobbies Icons</title>
+                    <path d="M22.71,24.29A6.862,6.862,0,0,1,21,20a105.01469,105.01469,0,0,0-.86-12.02.93265.93265,0,0,0,.67-.4.99475.99475,0,0,0,.13989-.9l-1-3A1.01337,1.01337,0,0,0,19,3H13a1.01337,1.01337,0,0,0-.94995.68l-1,3a.99475.99475,0,0,0,.13989.9.93265.93265,0,0,0,.67.4A105.01469,105.01469,0,0,0,11,20a6.73173,6.73173,0,0,1-1.71,4.29A8.83625,8.83625,0,0,0,7,30V51a2.99606,2.99606,0,0,0,3,3H22a2.99606,2.99606,0,0,0,3-3V30A8.83625,8.83625,0,0,0,22.71,24.29ZM13.72,5H18.28l.33,1H13.39ZM23,51a1.00291,1.00291,0,0,1-1,1H10a1.00291,1.00291,0,0,1-1-1V30a6.73185,6.73185,0,0,1,1.71-4.29A8.836,8.836,0,0,0,13,20a107.17274,107.17274,0,0,1,.87-12h4.26A107.17274,107.17274,0,0,1,19,20a8.836,8.836,0,0,0,2.29,5.71A6.86209,6.86209,0,0,1,23,30Z"></path>
+                    <path d="M20,46H12a.99943.99943,0,0,1-1-1V33a.99943.99943,0,0,1,1-1h8a.99943.99943,0,0,1,1,1V45A.99943.99943,0,0,1,20,46Zm-7-2h6V34H13Z"></path>
+                    <path d="M44.64,49H42.5a1.00291,1.00291,0,0,1-1-1V45.71A11.00249,11.00249,0,0,0,50,35c0-3.38-1.78-7.4-2.64-9.33-.20008-.46-.35-.79-.41-.97a.99712.99712,0,0,0-.75-.68A1.23465,1.23465,0,0,0,46,24H32a1.23465,1.23465,0,0,0-.2.02.99712.99712,0,0,0-.75.68c-.06006.18-.21.50995-.41.97C29.78,27.6,28,31.62,28,35a11.00249,11.00249,0,0,0,8.5,10.71V48a1.00291,1.00291,0,0,1-1,1H33.36A2.36439,2.36439,0,0,0,31,51.36v.28A2.36439,2.36439,0,0,0,33.36,54H44.64A2.36439,2.36439,0,0,0,47,51.64v-.28A2.36439,2.36439,0,0,0,44.64,49ZM32.46,26.48q.12012-.27.21-.48H45.33008q.08989.21.21.48c.28.64.67993,1.52,1.05994,2.52H31.4C31.78,28,32.17993,27.12,32.46,26.48ZM30,35a14.60334,14.60334,0,0,1,.72-4.05A.664.664,0,0,0,31,31H47a.664.664,0,0,0,.28-.05A14.60334,14.60334,0,0,1,48,35a9,9,0,0,1-18,0ZM45,51.64a.35846.35846,0,0,1-.36.36H33.36a.35846.35846,0,0,1-.36-.36v-.28a.35842.35842,0,0,1,.36-.36H35.5a2.99606,2.99606,0,0,0,3-3V46h1v2a3.00883,3.00883,0,0,0,3,3h2.14a.35842.35842,0,0,1,.36.36Z"></path>
+                </svg>
+                <a class="text-white text-base no-underline hover:no-underline font-extrabold text-xl" href="#">
+                    CellarHQ</a>
+                <div id="search-toggle" class="search-icon cursor-pointer pl-6">
+                    <svg class="fill-current pointer-events-none text-white w-4 h-4 inline"
+                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"></path>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="pr-4">
+                <button id="nav-toggle"
+                        class="block lg:hidden flex items-center px-3 py-2 border rounded text-grey border-grey-dark hover:text-black hover:border-purple appearance-none focus:outline-none">
+                    <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>
+                        Menu</title>
+                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="w-full flex-grow lg:flex lg:flex-1 lg:content-center lg:justify-end lg:w-auto hidden lg:block mt-2 lg:mt-0 z-20"
+                 id="nav-content">
+
+                <ul class="list-reset lg:flex justify-end items-center">
+                    <li class="mr-3 py-2 lg:py-0">
+                        <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="#">My Cellar</a>
+                    </li>
+                    <li class="mr-3 py-2 lg:py-0">
+                        <a class="inline-block text-white no-underline hover:text-black hover:underline py-2 px-4"
+                           href="#">Settings</a>
+                    </li>
+                    <li class="mr-3 py-2 lg:py-0">
+                        <a class="inline-block text-white no-underline hover:text-black hover:underline py-2 px-4"
+                           href="#">Logout</a>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!--Search-->
+    <div class="relative w-full hidden bg-white shadow-xl" id="search-content">
+        <div class="container mx-auto py-4 text-black">
+            <input id="searchfield" type="search" placeholder="Search..." autofocus="autofocus"
+                   class="w-full text-grey-800 transition focus:outline-none focus:border-transparent p-2 appearance-none leading-normal text-xl lg:text-2xl">
+        </div>
+
+    </div>
+
+</nav>
+
+<div class="pt-24 container mx-auto">
+    <div>
+        <div>
+            <div>
+
+                <h2 class="text-4xl">Rhinegeist</h2>
+
+                <div class="flex">
+                    <div>
+                        <div>
+
+                            <img>
+
+                        </div>
+
+
+                        <p>Rhinegeist is a brewery out of Cincinnati, OH that was built within the skeleton of the old
+                            Moerlein bottling plant (built in 1895). Within these unique and historic walls, we brew
+                            20bbl batches of beer that sings with flavor and delights us. The yin/yang of our brewing
+                            philosophy is hoppy/sessionable and we aim to brew beers where “the first sip calls for the
+                            third”. We’re a small team with big dreams and tend to smile while we sweat. We brew those
+                            styles which are most compelling to our thirst and we certainly hope you enjoy our brews as
+                            much as we do.
+
+                            Rhinegeist means “ghost of the Rhine”, and refers to our place here in the historic Brewery
+                            District in the Over the Rhine neighborhood of Cincinnati. At the turn of the century, this
+                            neighborhood was home to nearly 45,o00 inhabitants, most of them of German descent and 38
+                            breweries. We hope to engender the spirit of camaraderie and hard work that we imagine those
+                            living and brewing in this neighborhood at that time embodied.
+
+                            We self distribute our beer, which means each beer that you drink in a bar or restaurant is
+                            poured from a keg that we delivered cold in our refrigerated van (keep your eyes peeled for
+                            it around town). We like to keep beer as fresh as possible, which means that every keg we
+                            fill is immediately moved into cold storage where it sits until we load it onto our
+                            refrigerated van for delivery to the coldbox of each local account. Fresh beer is tasty
+                            beer, and that’s our favorite kind.</p>
+
+
+                    </div>
+
+                    <div>
+                        <div>
+                            <address>
+                                1910 Elm St<br>
+
+                                <br>
+                                <i></i> (513) 381-1356
+                                <br>
+
+                                <i>
+                                    <a target="_blank" href="http://rhinegeist.com/">http://rhinegeist.com</a>
+                                </i>
+
+                            </address>
+                        </div>
+                        <div>
+                            <a href="javascript:void(0)">
+                                <span>66</span>
+                                <h4>Beers</h4>
+                            </a>
+                            <a href="javascript:void(0)">
+                                <span>108</span>
+                                <h4>Total in cellars</h4>
+                            </a>
+                            <a href="javascript:void(0)">
+                                <span>68</span>
+                                <h4># Of Cellars</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+
+                    <div>
+                        <div>
+                            <div>
+                                <button class="bg-orange-100">Add New Beer</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div>
+                        <table id="beer-table" class="table-fixed border-black">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Style</th>
+                                <th>Availability</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/007">#007</a></td>
+                                <td class="border px-4 py-2">American-Style Pale Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/alice">Alice</a></td>
+                                <td class="border px-4 py-2">Belgian-Style Blonde Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/andromeda">Andromeda</a>
+                                </td>
+                                <td class="border px-4 py-2">American-Style Pale Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/asterix">Asterix</a>
+                                </td>
+                                <td class="border px-4 py-2">Belgian-Style Flanders Oud Bruin or Oud Red Ales</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/astro-dwarf">Astro
+                                    Dwarf</a></td>
+                                <td class="border px-4 py-2">America IPA</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/azacca">Azacca</a>
+                                </td>
+                                <td class="border px-4 py-2">American-Style Pale Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/barney">Barney</a>
+                                </td>
+                                <td class="border px-4 py-2">Scottish-Style Heavy Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/barrel-aged-ink">Barrel
+                                    Aged Ink </a></td>
+                                <td class="border px-4 py-2">American Double / Imperial Stout</td>
+                                <td class="border px-4 py-2">limited</td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/barrel-aged-mastadon">Barrel
+                                    Aged Mastadon</a></td>
+                                <td class="border px-4 py-2">Belgian Dark Ale</td>
+                                <td class="border px-4 py-2">limited</td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/barrel-aged-penguin">Barrel
+                                    Aged Penguin</a></td>
+                                <td class="border px-4 py-2">Blonde Ale</td>
+                                <td class="border px-4 py-2">seasonal</td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/bourbon-barrel-gramps">Bourbon
+                                    Barrel Gramps</a></td>
+                                <td class="border px-4 py-2">American Barleywine (Barrel Aged)</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/bourbon-barrel-ink">Bourbon
+                                    Barrel Ink</a></td>
+                                <td class="border px-4 py-2">Bourbon Barrel-Aged Imperial Stout</td>
+                                <td class="border px-4 py-2">limited</td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/bravo">Bravo</a></td>
+                                <td class="border px-4 py-2">American-Style India Pale Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/cafe-ink">Cafe Ink</a>
+                                </td>
+                                <td class="border px-4 py-2">Imperial Coffee Stout</td>
+                                <td class="border px-4 py-2">limited</td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/cafe-ink">Cafe Ink</a>
+                                </td>
+                                <td class="border px-4 py-2">American-Style Imperial Stout</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/chester">Chester</a>
+                                </td>
+                                <td class="border px-4 py-2">French &amp; Belgian-Style Saison</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/cidergeist">Cidergeist</a>
+                                </td>
+                                <td class="border px-4 py-2">Common Cider</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/conquistador">Conquistador</a>
+                                </td>
+                                <td class="border px-4 py-2">American-Style Pale Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/cougar">Cougar</a>
+                                </td>
+                                <td class="border px-4 py-2">Golden or Blonde Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/dad">Dad</a></td>
+                                <td class="border px-4 py-2">American-Style Amber/Red Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/deuce">Deuce</a></td>
+                                <td class="border px-4 py-2">Red IPA</td>
+                                <td class="border px-4 py-2">one time</td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/dodo">Dodo</a></td>
+                                <td class="border px-4 py-2"></td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/double-barrel-aged-mastodon">Double
+                                    Barrel Aged Mastodon</a></td>
+                                <td class="border px-4 py-2">Belgian Dark Strong Ale</td>
+                                <td class="border px-4 py-2">one time</td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/druncle">Druncle</a>
+                                </td>
+                                <td class="border px-4 py-2">English-Style Pale Mild Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/equinox">Equinox</a>
+                                </td>
+                                <td class="border px-4 py-2">American-Style Pale Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/exum">Exum</a></td>
+                                <td class="border px-4 py-2">American-Style Pale Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/fiction">Fiction</a>
+                                </td>
+                                <td class="border px-4 py-2">Belgian-Style Pale Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/fool">Fool</a></td>
+                                <td class="border px-4 py-2">Saison / Farmhouse Ale</td>
+                                <td class="border px-4 py-2">limited</td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/franz">Franz</a></td>
+                                <td class="border px-4 py-2">German-Style Oktoberfest / Wiesen (Meadow)</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/gramps">Gramps</a>
+                                </td>
+                                <td class="border px-4 py-2">American-Style Barley Wine Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/homie">Homie</a></td>
+                                <td class="border px-4 py-2">Imperial or Double India Pale Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/hugh">Hugh</a></td>
+                                <td class="border px-4 py-2">South German-Style Hefeweizen / Hefeweissbier</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/hustle">Hustle</a>
+                                </td>
+                                <td class="border px-4 py-2">American-Style Pale Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/ink">Ink</a></td>
+                                <td class="border px-4 py-2">American-Style Imperial Stout</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/jacques">Jacques</a>
+                                </td>
+                                <td class="border px-4 py-2">Belgian-Style Tripel</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/knucklehead">Knucklehead</a>
+                                </td>
+                                <td class="border px-4 py-2">Strong Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/kohatu">Kohatu</a>
+                                </td>
+                                <td class="border px-4 py-2">American-Style Pale Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/mastodon">Mastodon</a>
+                                </td>
+                                <td class="border px-4 py-2">Belgian-Style Dark Strong Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/mosaic">Mosaic</a>
+                                </td>
+                                <td class="border px-4 py-2">American-Style Pale Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/mushhushshu">Mushhushshu</a>
+                                </td>
+                                <td class="border px-4 py-2">Bourbon-Barrel Dark Ale</td>
+                                <td class="border px-4 py-2">limited</td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/nez">Nez</a></td>
+                                <td class="border px-4 py-2">American-Style Pale Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/oddjob">Oddjob</a>
+                                </td>
+                                <td class="border px-4 py-2">American Double / Imperial IPA</td>
+                                <td class="border px-4 py-2">limited</td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/panda">Panda</a></td>
+                                <td class="border px-4 py-2">Oatmeal Stout</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/pandemonium-barrel-aged-stout">Pandemonium
+                                    Barrel-Aged Stout</a></td>
+                                <td class="border px-4 py-2">American-Style Stout</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/panther">Panther</a>
+                                </td>
+                                <td class="border px-4 py-2">Robust Porter</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/penguin">Penguin</a>
+                                </td>
+                                <td class="border px-4 py-2">American-Style Stout</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/puma-pils">Puma
+                                    Pils</a></td>
+                                <td class="border px-4 py-2">Bohemian-Style Pilsener</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/punter">Punter</a>
+                                </td>
+                                <td class="border px-4 py-2">American-Style Pale Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/pure-fury">Pure
+                                    Fury</a></td>
+                                <td class="border px-4 py-2">American-Style Pale Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/rye-knucklehead">Rye
+                                    Knucklehead</a></td>
+                                <td class="border px-4 py-2">Bourbon Barrel Aged Strong Ale</td>
+                                <td class="border px-4 py-2">one time</td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/saber-tooth-tiger">Saber
+                                    Tooth Tiger</a></td>
+                                <td class="border px-4 py-2">Imperial or Double India Pale Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/sherry-ink">Sherry
+                                    Ink</a></td>
+                                <td class="border px-4 py-2">barrel aged stout</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/spike">Spike</a></td>
+                                <td class="border px-4 py-2">Light American Wheat Ale or Lager with Yeast</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/spikelet">Spikelet</a>
+                                </td>
+                                <td class="border px-4 py-2">Light American Wheat Ale or Lager without Yeast</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/squirt">Squirt</a>
+                                </td>
+                                <td class="border px-4 py-2">American-Style Pale Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/steve">Steve</a></td>
+                                <td class="border px-4 py-2">American-Style Black Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/streaker">Streaker</a>
+                                </td>
+                                <td class="border px-4 py-2">Rye IPA</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/stryker">Stryker</a>
+                                </td>
+                                <td class="border px-4 py-2">Imperial or Double India Pale Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/super-truth">Super
+                                    Truth</a></td>
+                                <td class="border px-4 py-2">American-Style India Pale Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/t-rex">T-Rex</a></td>
+                                <td class="border px-4 py-2">American-Style India Pale Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/trips">Trips</a></td>
+                                <td class="border px-4 py-2">American Sour</td>
+                                <td class="border px-4 py-2">one time</td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/truth">Truth</a></td>
+                                <td class="border px-4 py-2">American-Style India Pale Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/turkey-blue">Turkey
+                                    Blue</a></td>
+                                <td class="border px-4 py-2">French &amp; Belgian-Style Saison</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/uncle">Uncle</a></td>
+                                <td class="border px-4 py-2">English-Style Dark Mild Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/zen">Zen</a></td>
+                                <td class="border px-4 py-2">American-Style Pale Ale</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            <tr>
+                                <td class="border px-4 py-2"><a
+                                        href="https://www.cellarhq.com/breweries/rhinegeist/beers/zinfandel-barrel-aged-panther-porter">Zinfandel
+                                    Barrel-Aged Panther Porter</a></td>
+                                <td class="border px-4 py-2">Brown Porter</td>
+                                <td class="border px-4 py-2"></td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="relative w-full z-10 fixed top-0 bg-gray-800 border-b border-grey-light">
+        <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-4">
+            <div class="w-full flex-grow lg:flex lg:flex-1 lg:content-center lg:justify-end lg:w-auto hidden lg:block mt-2 lg:mt-0 z-20"
+                 id="footer-content">
+
+                <ul class="list-reset lg:flex justify-end items-center">
+                    <li class="mr-3 py-2 lg:py-0">
+                        <a class="inline-block py-2 px-4 text-white font-bold no-underline"
+                           href="https://www.cellarhq.com/terms-of-service">Terms</a>
+                    </li>
+                    <li class="mr-3 py-2 lg:py-0">
+
+                        <a class="inline-block text-white no-underline hover:text-black hover:underline py-2 px-4"
+                           href="https://www.cellarhq.com/privacy-policy">Privacy</a>
+                    </li>
+                    <li class="mr-3 py-2 lg:py-0">
+                        <span class="inline-block text-white no-underline hover:text-black hover:underline py-2 px-4">2014-20</span>
+                        © CellarHQ</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</footer>
+
+</body>
+
+<script>
+    /*Toggle dropdown list*/
+    /*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
+
+    var searchMenuDiv = document.getElementById("search-content");
+    var searchMenu = document.getElementById("search-toggle");
+
+    var navMenuDiv = document.getElementById("nav-content");
+    var navMenu = document.getElementById("nav-toggle");
+
+    document.onclick = check;
+
+    function check(e) {
+        var target = (e && e.target) || (event && event.srcElement);
+
+        //User Menu
+        if (!checkParent(target, searchMenuDiv)) {
+            // click NOT on the menu
+            if (checkParent(target, searchMenu)) {
+                // click on the link
+                if (searchMenuDiv.classList.contains("hidden")) {
+                    searchMenuDiv.classList.remove("hidden");
+                    searchfield.focus();
+                } else {
+                    searchMenuDiv.classList.add("hidden");
+                }
+            } else {
+                // click both outside link and outside menu, hide menu
+                searchMenuDiv.classList.add("hidden");
+            }
+        }
+
+        //Nav Menu
+        if (!checkParent(target, navMenuDiv)) {
+            // click NOT on the menu
+            if (checkParent(target, navMenu)) {
+                // click on the link
+                if (navMenuDiv.classList.contains("hidden")) {
+                    navMenuDiv.classList.remove("hidden");
+                } else {
+                    navMenuDiv.classList.add("hidden");
+                }
+            } else {
+                // click both outside link and outside menu, hide menu
+                navMenuDiv.classList.add("hidden");
+            }
+        }
+
+    }
+
+    function checkParent(t, elm) {
+        while (t.parentNode) {
+            if (t == elm) {
+                return true;
+            }
+            t = t.parentNode;
+        }
+        return false;
+    }
+</script>
+
+</html>
